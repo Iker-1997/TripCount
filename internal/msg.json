@@ -1,0 +1,5 @@
+{
+    "name_too_short": "El nombre de usuario es muy corto (min 4)",
+    "name_too_long": "El nombre de usuario es muy largo (max 32)",
+    "xss":"No se permiten caracteres invalidos"
+}
