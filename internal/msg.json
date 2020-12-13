@@ -1,5 +1,22 @@
 {
-    "name_too_short": "El nombre de usuario es muy corto (min 4)",
-    "name_too_long": "El nombre de usuario es muy largo (max 32)",
-    "xss":"No se permiten caracteres invalidos"
+	"username_non_alnum": "El nombre de usuario sólo puede contener caracteres alfanuméricos",
+    "username_too_short": "El nombre de usuario es muy corto (min 4)",
+    "username_too_long": "El nombre de usuario es muy largo (max 32)",
+    "xss": "Contiene caracteres no permitidos",
+	"name_non_alnum": "El nombre sólo puede contener caracteres alfanuméricos",
+	"lastname_non_alnum": "El apellido sólo puede contener caracteres alfabéticos",
+	"email_invalid": "El email no es valido",
+	"user_already_exists": "El usuario ya existe",
+	"user_created_successfully": "Usuario creado con éxito. Redirigiendo...",
+	"passwords_ne": "Las contraseñas no coinciden",
+	"email_already_in_use": "El email ya esta en uso",
+	"invalid_credentials" : "Las credenciales son invalidas",
+	"user_not_found": "El usuario no existe",
+	"login_ok": "Sesión iniciada correctamente. Redirigiendo...",
+	"home_travels_empty": "No hay ningun viaje, puedes crear tu primer viaje haciendo clic al mas",
+	"travel_created_successfully": "El viaje fue creado con éxito",
+	"invalid_currency_format": "Formato de moneda no válido",
+	"description_too_long": "La descripción del viaje es muy larga (max 255)",
+	"travelname_too_long": "El nombre del viaje es muy largo (max 32)",
+	"travelname_non_alnum": "El nombre del viaje sólo puede contener caracteres alfanuméricos"
 }
