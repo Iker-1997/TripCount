@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TripCount</title>
-        <link rel="stylesheet" href="templates/landing.css">
+        <link rel="stylesheet" href="css/landing.css">
     </head>
     <body>
         <main>
@@ -14,12 +14,8 @@
                         Benvingut a l'aplicació TripCount, la millor aplicació per organitzar els teus viatges.
                     </p>
                     <div id="containerButtons">
-                        <form action="login.php" method="POST">
-                            <input type="submit" value="Login" class="button">
-                        </form>
-                        <form action="register.php" method="POST">
-                            <input type="submit" value="Registre" class="button">
-                        </form>
+                        <a href="login.php" id="button1" class="button">Login</a>
+                        <a href="register.php" id="button2" class="button">Register</a>
                     </div>
                 </div>
             </div>
