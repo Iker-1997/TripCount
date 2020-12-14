@@ -13,7 +13,7 @@ function call_db(){
         $hostname = "localhost";
         $dbname = "tripcount";
         $username = "root";
-        $pw = '';
+        $pw = '$pzDzdMk1nBLFtU29ZplHodhfNCUlEtH';
         $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
       } catch (PDOException $e) {
         die("ERROR DB: $e");
@@ -209,7 +209,7 @@ function injectJS($kind, $argument, $base64){
 		$out .= "function createCurrenciesOptions(){\n";
 
 		while($row = $query->fetch()){
-			$out .= 'customCreateElement("option", "' . $row["currency_iso"] . ' - ' . $row["name"] . '", document.getElementById("currency"), undefined, {"value": "' . $row["currency_iso"] . '"});' . "\n";
+			$out .= 'customCreateElement("option", "' . $row["currency_iso"] . ' - ' . $row["name"] . ' - ' . $row["currency_char"] . '", document.getElementById("currency"), undefined, {"value": "' . $row["currency_iso"] . '"});' . "\n";
 		}
 		
 		$out .= "}\n";
