@@ -13,7 +13,7 @@ function call_db(){
         $hostname = "localhost";
         $dbname = "tripcount";
         $username = "root";
-        $pw = '$pzDzdMk1nBLFtU29ZplHodhfNCUlEtH';
+        $pw = '';
         $pdo = new PDO ("mysql:host=$hostname;dbname=$dbname","$username","$pw");
       } catch (PDOException $e) {
         die("ERROR DB: $e");
