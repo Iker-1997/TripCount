@@ -1,0 +1,107 @@
+/*
+Elementos generales
+*/
+
+body {
+	background-color: #eff6e0;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+    text-align: center;
+	background-color: #598392;
+	padding: 1em .5em 1em .5em;
+}
+
+/*
+Clases
+*/
+
+.msg {
+    text-align: center;
+    padding: 1em;
+    width: 400px;
+    margin: auto;
+    border: 2px solid;
+}
+
+.error {
+    border-color: red;
+    background-color: #f67c73;
+}
+
+.warning {
+    border-color: yellow;
+    background-color: #ffa92a;
+}
+
+.info{
+    border-color: blue;
+    background-color: #46a7f5;
+}
+
+.success {
+    border-color: green;
+    background-color: #4caf50;
+}
+
+header {
+	background-color: #598392;
+	padding: 1em .5em 1em .5em;
+}
+
+.business_name {
+	display: inline;
+}
+
+.username {
+	position: absolute;
+	margin-right: 4em;
+	right: 0;
+}
+
+#dynAddTravelForm {
+	max-width: 300px;
+}
+
+.block {
+	display: block;
+}
+
+textarea[name=description]{
+	resize: none;
+	background-color: #AEC3B0;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.msg-container{
+	margin-top: 10px;
+}
+
+#travels {
+	border: 1px solid #01161e;
+	background-color: #AEC3B0;
+	border-spacing: 0px;
+}
+
+th > i {
+	left: 0;
+}
+
+th, td {
+	padding: 10px;
+	border: 1px solid #01161e;
+}
+
+.order {
+	cursor: pointer;
+}
