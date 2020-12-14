@@ -71,7 +71,8 @@ injectJS("currencies", null, false);
     <head>
         <?php getTitle(); ?>
 		<link rel="stylesheet" href="css/fontawesome.min.css">
-        <link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/home.css">
 		<script src="js/util.js" async></script>
 		<script src="js/home.js" async></script>
     </head>

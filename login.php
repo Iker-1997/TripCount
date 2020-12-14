@@ -50,19 +50,20 @@
 <html>
     <head>
         <?php getTitle(); ?>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
         <?php
             include_once("header.php");
         ?>
-        <div style="text-align: center">
+        <div id="formContainer">
             <form action="" method="POST">
                 <label for="username">Usuario:</label><br>
                 <input type="text" id="username" name="username" placeholder="usuario82" maxlength="32" required><br>
                 <label for="password">Contraseña:</label><br>
                 <input type="password" id="password" name="password" placeholder="password" required><br>
-                <input type="submit" value="Iniciar sesion">
+                <input type="submit" class="button" value="Iniciar sesion">
             </form>
         </div>
         <?php

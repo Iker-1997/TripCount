@@ -254,12 +254,12 @@ function home_travels($order_by = "last_modification"){
 
 	if($query->rowCount() === 0){
 		invokeMsgbox(["category" => "info", "id" => "home_travels_empty"]);
-		return "<button id=\"addTravel\">Añadir viaje <i class=\"fas fa-plus\"></i></button>";
+		return "<button id=\"addTravel\" class=\"button\">Añadir viaje <i class=\"fas fa-plus\"></i></button>";
 	}
 	
 	$out = '<form method="POST" id="utilOrderForm"><input type="hidden" name="order_by"></form>';
 	
-	$out .= "<button id=\"addTravel\">Añadir viaje <i class=\"fas fa-plus\"></i></button>";
+	$out .= "<button id=\"addTravel\" class=\"button\">Añadir viaje <i class=\"fas fa-plus\"></i></button>";
 	
 	if($order_by === "last_modification"){
 		$out .= "<table id=\"travels\">

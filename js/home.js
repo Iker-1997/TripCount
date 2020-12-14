@@ -20,7 +20,7 @@ function createAddTravelForm(){
 	
 	createCurrenciesOptions();
 	
-	customCreateElement("input", null, parent, undefined, {"type": "submit", "value": "enviar"});
+	customCreateElement("input", null, parent, undefined, {"type": "submit", "value": "Enviar", "class": "button"});
 }
 
 function travelFormControl(){

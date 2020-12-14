@@ -11,7 +11,7 @@
             <div id="containerLanding">
                 <div id="contenido">
                     <p>
-                        Benvingut a l'aplicació TripCount, la millor aplicació per organitzar els teus viatges.
+                        Bienvenido a la aplicación TripCount, la mejor aplicación para organizar los gastos de tus viajes.
                     </p>
                     <div id="containerButtons">
                         <a href="login.php" id="button1" class="button">Login</a>
