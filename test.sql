@@ -50,6 +50,7 @@ CREATE TABLE friendships(
 CREATE TABLE currencies(
 	currency_iso char(3) not null,
 	name varchar(255) not null,
+	currency_char varchar(8) not null,
 
 	CONSTRAINT PK_CURRENCIES PRIMARY KEY (currency_iso),
 	CONSTRAINT UC_NAME UNIQUE (name)
