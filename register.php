@@ -69,36 +69,54 @@
 <html>
     <head>
         <?php getTitle(); ?>
-        <link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/general.css">
+		<link rel="stylesheet" href="css/register.css">
     </head>
     <body>
         <?php
             include_once("header.php");
         ?>
-        <div style="text-align: center">
-            <form action="" method="POST">
-                <label for="username">Usuario:</label><br>
-                <input type="text" id="username" name="username" placeholder="usuario82" maxlength="32" required><br>
+        <div>
+            <form action="" method="POST" id="register_content">
 				
-				<label for="name">Nombre:</label><br>
-                <input type="text" id="name" name="name" placeholder="Rodrigo" maxlength="32" required><br>
+				<div>
+                	<label for="username">Usuario:</label><br>
+					<input type="text" id="username" class="input_register" name="username" placeholder="usuario82" maxlength="32" required><br>
+				</div>
 				
-				<label for="lastname1">Primer apellido:</label><br>
-                <input type="text" id="lastname1" name="lastname1" placeholder="Perez" maxlength="32" required><br>
+				<div>
+					<label for="name">Nombre:</label><br>
+                	<input type="text" id="name" class="input_register" name="name" placeholder="Rodrigo" maxlength="32" required><br>
+				</div>
+
+				<div>
+					<label for="lastname1">Primer apellido:</label><br>
+					<input type="text" id="lastname1" class="input_register" name="lastname1" placeholder="Perez" maxlength="32" required><br>
+				</div>
 				
-				<label for="lastname2">Segundo apellido:</label><br>
-                <input type="text" id="lastname2" name="lastname2" placeholder="Soles" maxlength="32" required><br>
+				<div>
+					<label for="lastname2">Segundo apellido:</label><br>
+					<input type="text" id="lastname2" class="input_register" name="lastname2" placeholder="Soles" maxlength="32" required><br>
+				</div>
 				
-				<label for="email">Segundo apellido:</label><br>
-                <input type="email" id="email" name="email" placeholder="usuerio82@email.com" maxlength="255" required><br>
+				<div>
+					<label for="email">Segundo apellido:</label><br>
+                	<input type="email" id="email" class="input_register" name="email" placeholder="usuerio82@email.com" maxlength="255" required><br>
+				</div>
+
+				<div>
+                	<label for="password">Contraseña:</label><br>
+					<input type="password" id="password" class="input_register" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
+				</div>
 				
-                <label for="password">Contraseña:</label><br>
-                <input type="password" id="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
+				<div>
+					<label for="password2">Verificar contraseña:</label><br>
+					<input type="password" id="password2" class="input_register" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
+				</div>
 				
-				<label for="password2">Verificar contraseña:</label><br>
-                <input type="password" id="password2" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
-				
-                <input type="submit" value="Registrarse">
+				<div>
+					<input type="submit" value="Registrarse">
+				</div>
             </form>
         </div>
         <?php
