@@ -4,6 +4,7 @@ Elementos generales
 
 body {
 	background-color: #eff6e0;
+	font-family: system-ui;
 }
 
 footer {
@@ -13,7 +14,16 @@ footer {
 	left: 0;
     text-align: center;
 	background-color: #598392;
-	padding: 1em .5em 1em .5em;
+	padding: 1em;
+}
+
+header {
+	position: relative;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+header > * {
+	font-family: 'Potta One', cursive;
 }
 
 /*
@@ -50,21 +60,39 @@ Clases
 
 header {
 	background-color: #598392;
-	padding: 1em .5em 1em .5em;
+	padding: 1em 2em 1em 2em;
 }
 
 .business_name {
 	display: inline;
 }
 
+.business_name a{
+	text-decoration: none;
+    color: inherit;
+}
+
 .username {
+	/*
+	position: relative;
+	float: right;
+	*/
 	position: absolute;
-	margin-right: 4em;
-	right: 0;
+	right: 2em;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.username > a {
+	text-decoration: none;
+	color: inherit;
 }
 
 #dynAddTravelForm {
 	max-width: 300px;
+	text-align: center;
+	margin-top: 32px;
 }
 
 .block {
@@ -91,17 +119,93 @@ main {
 	border: 1px solid #01161e;
 	background-color: #AEC3B0;
 	border-spacing: 0px;
+	text-align: center;
 }
 
 th > i {
 	left: 0;
 }
 
+th {
+	text-shadow: 0px 0px 8px #ffffff;
+}
+
 th, td {
 	padding: 10px;
-	border: 1px solid #01161e;
+	/*border: 1px solid #01161e;*/
 }
 
 .order {
 	cursor: pointer;
+}
+
+tbody tr:nth-child(odd){
+	background-color: #ebe9e9;
+}
+
+tbody tr:nth-child(even){
+	background-color: #F0FFFF;
+}
+
+tbody tr:first-child{
+	background-color: #598392;
+}
+
+.emailInput{
+	margin-left: 26px;
+}
+
+#emails{
+	text-align: center;
+}
+
+.emailRemoveBtn {
+	margin-left: 6px;
+}
+
+.customBtn, input[type=submit]{
+	padding: 8px;
+	background-color: #598392;
+	border: 1px solid black;
+	margin-bottom: 16px;
+	cursor: pointer;
+	text-shadow: 0px 0px 8px #ffffff;
+	font-weight: bold;
+}
+
+.btnMargin {
+	margin-left: 10px;
+    margin-right: 10px;
+}
+
+.invalidInput {
+	border-width: 2px;
+    border-style: inset;
+    border-color: red;
+    border-image: initial;
+    outline: red;
+}
+
+input {
+	text-align: center;
+}
+
+.clickeable {
+	cursor: pointer;
+}
+
+.subtravel {
+	transition: linear 1000ms;
+}
+
+.subtravel.faded-out {
+	display: none;
+}
+
+.mt8 {
+	margin-top: 8px;
+}
+
+.emailForm {
+	text-align: center;
 }

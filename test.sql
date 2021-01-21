@@ -50,6 +50,7 @@ CREATE TABLE friendships(
 CREATE TABLE currencies(
 	currency_iso char(3) not null,
 	name varchar(255) not null,
+	currency_char varchar(8) not null,
 
 	CONSTRAINT PK_CURRENCIES PRIMARY KEY (currency_iso),
 	CONSTRAINT UC_NAME UNIQUE (name)
@@ -234,6 +235,7 @@ CREATE TABLE expenses(
 	user_id int not null,
 	concept varchar(32) not null,
 	quantity decimal(13, 4) not null,
+	date timestamp not null,
 	
 	CONSTRAINT PK_EXPENSES PRIMARY KEY (expense_id),
 	CONSTRAINT FK_TRAVEL_ID_D FOREIGN KEY (travel_id) REFERENCES travels(travel_id),
@@ -243,9 +245,11 @@ CREATE TABLE expenses(
 CREATE TABLE invitations(
 	invitation_id int not null AUTO_INCREMENT,
 	user_id int not null,
+	travel_id int not null,
 	email varchar(255) not null,
 	date_invitation TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP(),
 	
 	CONSTRAINT PK_INVITATIONS PRIMARY KEY (invitation_id),
-	CONSTRAINT FK_USER_ID_I FOREIGN KEY (user_id) REFERENCES users(user_id)
+	CONSTRAINT FK_USER_ID_I FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_TRAVEL_ID_I FOREIGN KEY (travel_id) REFERENCES travels(travel_id)
 );
