@@ -26,8 +26,14 @@
 							session_start(['name' => 'TRIPCOUNT_SESS_ID']);
 							session_init($row);
 							
-							invokeMsgbox(["category" => "success", "id" => "login_ok"]);
-							injectJS("sleep_redirect", "home.php", true);
+                            invokeMsgbox(["category" => "success", "id" => "login_ok"]);
+
+                            if(isset($_SESSION["next_page"])){
+                                injectJS("sleep_redirect", $_SESSION["next_page"], true);
+                            }
+                            else{
+                                injectJS("sleep_redirect", "home.php", true);
+                            }
 						}
 						else{
 							// Password erronea
@@ -50,20 +56,21 @@
 <html>
     <head>
         <?php getTitle(); ?>
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php
             include_once("header.php");
         ?>
-        <div id="formContainer">
+        <div style="text-align: center">
             <form action="" method="POST">
                 <label for="username">Usuario:</label><br>
                 <input type="text" id="username" name="username" placeholder="usuario82" maxlength="32" required><br>
                 <label for="password">Contraseña:</label><br>
-                <input type="password" id="password" name="password" placeholder="password" required><br>
-                <input type="submit" class="button" value="Iniciar sesion">
+                <input type="password" id="password" name="password" placeholder="********" required><br>
+                <input class="customBtn mt8" type="submit" value="Iniciar sesion">
             </form>
         </div>
         <?php

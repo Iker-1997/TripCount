@@ -33,7 +33,11 @@
 								TODO: Tenemos que comprovar que si el email del usuario se encuentra en la table de invitaciones,
 								si es asi tenemos que hacer un inster para que este dentro de todos los viajes que fue invitado a su correo
 								*/
-								
+								$query = $pdo->prepare('SELECT invitation_id, travel_id FROM invitations WHERE email = :email');
+								$query->bindParam(':email', $_POST['email'], PDO::PARAM_STR, 255);
+								$query->execute();
+								$inv = $query->fetchAll();
+
 								// Creamos el nuevo usuario
 								$query = $pdo->prepare('INSERT INTO `users` (`user_id`, `username`, `name`, `lastname1`, `lastname2`, `email`, `password`) VALUES (NULL, :username, :name, :lastname1, :lastname2, :email, :password)');
 								
@@ -47,7 +51,30 @@
 								$tmp = password_hash($_POST["password"], PASSWORD_BCRYPT);
 								$query->bindParam(':password', $tmp, PDO::PARAM_STR, 255);
 								
-								$query->execute();
+								$result = $query->execute();
+
+								// If we have any invite, just accept all the invites!
+								if(sizeof($inv) > 0){
+									$user_id = $pdo->lastInsertId();
+
+									foreach($inv as $invitation){
+										$invitation_id = $invitation["invitation_id"];
+										$travel_id = $invitation["travel_id"];
+
+										// add user to travel
+										$query = $pdo->prepare('INSERT INTO `users_travels` (`user_id`, `travel_id`, `association_date`) VALUES (:userid, :travelid, current_timestamp())');
+										$query->bindParam(':userid', $user_id, PDO::PARAM_INT);
+										$query->bindParam(':travelid', $travel_id, PDO::PARAM_INT);
+										$query->execute();
+
+										// delete used invitation
+										$query = $pdo->prepare('DELETE FROM `invitations` WHERE invitation_id = :invitationid');
+										$query->bindParam(':invitationid', $invitation_id, PDO::PARAM_INT);
+										$query->execute();
+
+									}
+								}
+
 								invokeMsgbox(["category" => "success", "id" => "user_created_successfully"]);
 								injectJS("sleep_redirect", "login.php", true);
 							}
@@ -69,54 +96,37 @@
 <html>
     <head>
         <?php getTitle(); ?>
-		<link rel="stylesheet" href="css/general.css">
-		<link rel="stylesheet" href="css/register.css">
+        <link rel="stylesheet" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php
             include_once("header.php");
         ?>
-        <div>
-            <form action="" method="POST" id="register_content">
+        <div style="text-align: center">
+            <form action="" method="POST">
+                <label for="username">Usuario:</label><br>
+                <input type="text" id="username" name="username" placeholder="usuario82" maxlength="32" required><br>
 				
-				<div>
-                	<label for="username">Usuario:</label><br>
-					<input type="text" id="username" class="input_register" name="username" placeholder="usuario82" maxlength="32" required><br>
-				</div>
+				<label for="name">Nombre:</label><br>
+                <input type="text" id="name" name="name" placeholder="Rodrigo" maxlength="32" required><br>
 				
-				<div>
-					<label for="name">Nombre:</label><br>
-                	<input type="text" id="name" class="input_register" name="name" placeholder="Rodrigo" maxlength="32" required><br>
-				</div>
-
-				<div>
-					<label for="lastname1">Primer apellido:</label><br>
-					<input type="text" id="lastname1" class="input_register" name="lastname1" placeholder="Perez" maxlength="32" required><br>
-				</div>
+				<label for="lastname1">Primer apellido:</label><br>
+                <input type="text" id="lastname1" name="lastname1" placeholder="Perez" maxlength="32" required><br>
 				
-				<div>
-					<label for="lastname2">Segundo apellido:</label><br>
-					<input type="text" id="lastname2" class="input_register" name="lastname2" placeholder="Soles" maxlength="32" required><br>
-				</div>
+				<label for="lastname2">Segundo apellido:</label><br>
+                <input type="text" id="lastname2" name="lastname2" placeholder="Soles" maxlength="32" required><br>
 				
-				<div>
-					<label for="email">Segundo apellido:</label><br>
-                	<input type="email" id="email" class="input_register" name="email" placeholder="usuerio82@email.com" maxlength="255" required><br>
-				</div>
-
-				<div>
-                	<label for="password">Contraseña:</label><br>
-					<input type="password" id="password" class="input_register" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
-				</div>
+				<label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="usuario82@email.com" maxlength="255" required><br>
 				
-				<div>
-					<label for="password2">Verificar contraseña:</label><br>
-					<input type="password" id="password2" class="input_register" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
-				</div>
+                <label for="password">Contraseña:</label><br>
+                <input type="password" id="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
 				
-				<div>
-					<input type="submit" value="Registrarse">
-				</div>
+				<label for="password2">Verificar contraseña:</label><br>
+                <input type="password" id="password2" name="password2" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" required><br>
+				
+                <input class="mt8" type="submit" value="Registrarse">
             </form>
         </div>
         <?php
