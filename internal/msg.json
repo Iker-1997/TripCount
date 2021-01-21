@@ -18,5 +18,14 @@
 	"invalid_currency_format": "Formato de moneda no válido",
 	"description_too_long": "La descripción del viaje es muy larga (max 255)",
 	"travelname_too_long": "El nombre del viaje es muy largo (max 32)",
-	"travelname_non_alnum": "El nombre del viaje sólo puede contener caracteres alfanuméricos"
+	"travelname_non_alnum": "El nombre del viaje sólo puede contener caracteres alfanuméricos",
+	"error_at_sending_step": "Los siguientes correos no se han podido enviar. Reviselos para ver si coinciden.",
+	"ok_at_sending_step": "Se han enviado todas las invitaciones correctamente.",
+	"error_at_sending_step_inv_already_send": "Ya se ha enviado una invitacion a ese correo",
+	"user_does_not_belong_to_travel": "El usuario no existe o no pertenece al viaje",
+	"non_numeric_value_subject": "El sujeto no es valido",
+	"non_numeric_value_quantity": "La cantidad no contiene un valor valido",
+	"add_expense_ok": "Se ha añadido el gasto correctamente",
+	"invite_accepted": "Invitacion aceptada",
+	"accept_invite_error": "Error al aceptar la invitacion"
 }
